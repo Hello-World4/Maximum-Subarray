@@ -8,7 +8,7 @@ def maxSubArray(arr): #complexity O(n^2)
                 max = sum
     return max
 
-def maxSubArray2(arr): #Kadane's Algorithm O(n)
+def maxSubArray2(arr): #Kadane’s Algorithm o(n)
     max1 = 0
     max2 = 0
     for i in range(len(arr)):
@@ -19,9 +19,17 @@ def maxSubArray2(arr): #Kadane's Algorithm O(n)
             max1 = 0
     return max2
 
+def maxSubArray3(arr): #Kadane’s Algorithm o(n)
+    current_sum = arr[0]
+    max1 = arr[0]
+    for i in range(1,len(arr)):
+        current_sum = max(current_sum + arr[i], arr[i])
+        max1 = max(current_sum, max1)
+    return max1
 
 
 if __name__ == "__main__":
     a = [1,-3,2,1,-1]
     print(maxSubArray(a))
     print(maxSubArray2(a))
+    print(maxSubArray3(a))
